@@ -1,11 +1,28 @@
+body {
+    background-color: rgb(214, 205, 194);
+}
+
 .App {
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
-    width: 100px;
+    padding-left: 10px;
+    padding-right: 10;
+    background-color: whitesmoke;
+    width: 1000px;
+    height: 1000px;
+   
+}
+
+.container{
+    height: 100px;
+    width: 150px;
+    display: flex;
+    justify-content: flex-start;
 }
 
 button{
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: whitesmoke;
 }
 

@@ -42,6 +42,7 @@ function App() {
   return (
     <>
       <div className = "App">
+        <div className='container'>
         <h1>Hello coding sandbox!</h1>
         <h2>Start coding to see some magic happen!</h2>
         <h1>
@@ -53,9 +54,10 @@ function App() {
         <button onClick={() => {
           setCounter(counter - 1);
         }}>Decrement -</button>
-        <h4>
+        <p>
           {randomDataJson}
-        </h4>
+        </p>
+        </div>
       </div>
     </>
   )
