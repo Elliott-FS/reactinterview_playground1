@@ -1,1 +1,19 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: gray;
+}
 
+button{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+p{
+    font-size: smaller;
+    width: 500px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+}
