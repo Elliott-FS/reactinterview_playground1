@@ -22,7 +22,7 @@ const fetchRandomData = () => {
 .then(({data}) => {
     // handle success
     console.log(data);
-    return JSON.stringify(data)
+    return data;
   })
 .catch((error) => {
   // handle error
@@ -30,15 +30,22 @@ const fetchRandomData = () => {
 })
 }
 
+const getFullUserName = (userInfo) =>{
+  const {name: {first: last}} = userInfo;
+  return `${first} ${last}`;
+}
+
 
 function App() {
 
 const [counter, setCounter] = useState(0);
 const [userData, setUserData] = useState("Random Data");
+const [userInfos, setUserInfos] = useState([]);
 
 useEffect(() => {
   fetchRandomData().then((randomData) => {
-    setUserData(randomData);
+    setUserData(JSON.stringify(randomData));
+    setUserInfos(randomData.results)
   })
 },[])
 
@@ -46,11 +53,11 @@ return (
   <div className="container">
     <h2>{counter}</h2>
     <button onClick={() => {
-      setCounter(counter - 1)
-    }}>Decrement -</button>
-    <button onClick={() => {
       setCounter(counter + 1)
     }}>Increment +</button>
+    <button onClick={() => {
+      setCounter(counter - 1)
+    }}>Decrement -</button>
     <p>{userData}</p>
   </div>
   )

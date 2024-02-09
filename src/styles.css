@@ -1,6 +1,6 @@
 .container{
     display: flex; 
-    background-color: gray;
+    background: linear-gradient(rgb(13, 140, 129), whitesmoke);
     flex-direction: column;
     align-items: center;
 }
@@ -8,4 +8,9 @@
 button{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+p{
+    max-width: 600px;
+    max-height: fit-content;
 }
