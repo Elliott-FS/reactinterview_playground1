@@ -21,7 +21,7 @@ const fetchRandomData = () => {
  return axios.get('https://randomuser.me/api')
 .then(({data}) => {
     // handle success
-    console.log(data);
+    console.log(data.results);
     return data;
   })
 .catch((error) => {
@@ -30,10 +30,6 @@ const fetchRandomData = () => {
 })
 }
 
-const getFullUserName = (userInfo) =>{
-  const {name: {first: last}} = userInfo;
-  return `${first} ${last}`;
-}
 
 
 function App() {
@@ -44,7 +40,7 @@ const [userInfos, setUserInfos] = useState([]);
 
 useEffect(() => {
   fetchRandomData().then((randomData) => {
-    setUserData(JSON.stringify(randomData));
+    setUserData((randomData));
     setUserInfos(randomData.results)
   })
 },[])
@@ -58,7 +54,17 @@ return (
     <button onClick={() => {
       setCounter(counter - 1)
     }}>Decrement -</button>
-    <p>{userData}</p>
+    {
+      userInfos.map(user => {
+        return(
+          <div>
+            <img src={user.picture.medium}/>
+            <h1>{user.name.first}</h1>
+            <h3>{user.dob.age}</h3>
+          </div>
+        )
+      })
+    }
   </div>
   )
 }
